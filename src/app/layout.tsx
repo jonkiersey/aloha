@@ -1,7 +1,13 @@
 "use client";
-import { ThemeProvider } from "@mui/material";
-import theme from "./theme";
-import Header from "./common/header";
+import { Box, ThemeProvider } from "@mui/material";
+import theme from "../theme";
+import { Header } from "@common";
+import styled from "styled-components";
+import { sizes } from "@constants";
+
+const PageContainer = styled(Box)({
+  marginTop: sizes.headerHeight,
+});
 
 const RootLayout = ({
   children,
@@ -10,11 +16,11 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body>
+      <body style={{ margin: 0 }}>
         <main>
           <ThemeProvider theme={theme}>
             <Header />
-            {children}
+            <PageContainer>{children}</PageContainer>
           </ThemeProvider>
         </main>
       </body>
