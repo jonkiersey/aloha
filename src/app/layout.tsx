@@ -9,6 +9,7 @@ import ConstructionIcon from "@mui/icons-material/Construction";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import EmailIcon from "@mui/icons-material/Email";
+import Head from "next/head";
 
 const ContentContainer = styled(Box)({
   flexGrow: 1,
@@ -52,6 +53,9 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
+      <Head>
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <body style={{ margin: 0, height: "100vh" }}>
         <main>
           <ThemeProvider theme={theme}>

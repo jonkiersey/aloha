@@ -59,7 +59,7 @@ const ProjectCard = ({
           <Typography variant="body1">
             Check out the source code:{" "}
             {sourceLinks.map(({ label, link }, index, array) => (
-              <Link href={link} target="_blank">
+              <Link key={label} href={link} target="_blank">
                 {label}
                 {index + 1 !== array.length && ", "}
               </Link>

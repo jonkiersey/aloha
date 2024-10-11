@@ -67,6 +67,7 @@ const Header = ({ routes }: HeaderProps) => {
         {routes.map(({ route, Icon, label }) => (
           <NavLink
             isCurrentTab={pathname === route}
+            key={route}
             onClick={() => router.push(route)}
           >
             <Icon />

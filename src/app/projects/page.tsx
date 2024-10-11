@@ -60,7 +60,7 @@ const Projects = () => {
   return (
     <PageContainer>
       {projects.map((project) => (
-        <Project {...project} />
+        <Project key={project.title} {...project} />
       ))}
     </PageContainer>
   );
