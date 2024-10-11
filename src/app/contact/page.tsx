@@ -1,6 +1,7 @@
 "use client";
 import { Box, Link, Typography } from "@mui/material";
 import styled from "styled-components";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 
@@ -42,7 +43,13 @@ const Contact = () => {
         <Link href="https://www.linkedin.com/in/jonkiersey/" target="_blank">
           <ContactLinkContent>
             <LinkedInIcon />
-            <Typography variant="body1">Jon Kiersey</Typography>
+            <Typography variant="body1">LinkedIn Profile</Typography>
+          </ContactLinkContent>
+        </Link>
+        <Link href="https://github.com/jonkiersey" target="_blank">
+          <ContactLinkContent>
+            <GitHubIcon />
+            <Typography variant="body1">GitHub Profile</Typography>
           </ContactLinkContent>
         </Link>
       </ContentContainer>
