@@ -1,11 +1,7 @@
 import { Box, Button, styled } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
-import ConstructionIcon from "@mui/icons-material/Construction";
-import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
-import EmailIcon from "@mui/icons-material/Email";
 import { sizes } from "@constants";
-import { ReactElement, ReactNode } from "react";
+import { ReactNode } from "react";
 
 const HeaderContainer = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
