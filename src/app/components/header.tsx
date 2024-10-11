@@ -1,10 +1,11 @@
 import { Box, Button, styled } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
+import ConstructionIcon from "@mui/icons-material/Construction";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import EmailIcon from "@mui/icons-material/Email";
 import { sizes } from "@constants";
-import { ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 
 const HeaderContainer = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
@@ -13,11 +14,15 @@ const HeaderContainer = styled(Box)(({ theme }) => ({
   top: 0,
   left: 0,
   width: "100%",
-  display: "flex",
-  gap: 8,
   overflowX: "auto",
   zIndex: 1000,
 }));
+
+const HeaderContent = styled(Box)({
+  display: "flex",
+  minWidth: "fit-content",
+  gap: 8,
+});
 
 const NavButton = styled(Button)(({ theme }) => ({
   gap: 8,
@@ -45,29 +50,30 @@ const NavLink = ({
   return <NavComponent onClick={onClick}>{children}</NavComponent>;
 };
 
-const Header = () => {
+export type HeaderProps = {
+  routes: {
+    route: string;
+    Icon: React.ElementType;
+    label: string;
+  }[];
+};
+
+const Header = ({ routes }: HeaderProps) => {
   const router = useRouter();
   const pathname = usePathname();
   return (
     <HeaderContainer>
-      <NavLink isCurrentTab={pathname === "/"} onClick={() => router.push("/")}>
-        <HomeIcon />
-        Home
-      </NavLink>
-      <NavLink
-        isCurrentTab={pathname === "/about"}
-        onClick={() => router.push("/about")}
-      >
-        <InfoIcon />
-        About
-      </NavLink>
-      <NavLink
-        isCurrentTab={pathname === "/contact"}
-        onClick={() => router.push("/contact")}
-      >
-        <EmailIcon />
-        Contact
-      </NavLink>
+      <HeaderContent>
+        {routes.map(({ route, Icon, label }) => (
+          <NavLink
+            isCurrentTab={pathname === route}
+            onClick={() => router.push(route)}
+          >
+            <Icon />
+            {label}
+          </NavLink>
+        ))}
+      </HeaderContent>
     </HeaderContainer>
   );
 };

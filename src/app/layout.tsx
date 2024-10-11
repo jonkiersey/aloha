@@ -1,9 +1,14 @@
 "use client";
 import { Box, ThemeProvider } from "@mui/material";
 import theme from "../theme";
-import { Footer, Header } from "@common";
+import { Footer, Header } from "./components";
 import styled from "styled-components";
 import { sizes } from "@constants";
+import { HeaderProps } from "./components/header";
+import ConstructionIcon from "@mui/icons-material/Construction";
+import HomeIcon from "@mui/icons-material/Home";
+import InfoIcon from "@mui/icons-material/Info";
+import EmailIcon from "@mui/icons-material/Email";
 
 const ContentContainer = styled(Box)({
   flexGrow: 1,
@@ -17,6 +22,29 @@ const PageContainer = styled(Box)({
   minHeight: "100vh",
 });
 
+const navHeaderRoutes: HeaderProps["routes"] = [
+  {
+    route: "/",
+    Icon: HomeIcon,
+    label: "Home",
+  },
+  {
+    route: "/about",
+    Icon: InfoIcon,
+    label: "About",
+  },
+  {
+    route: "/projects",
+    Icon: ConstructionIcon,
+    label: "Projects",
+  },
+  {
+    route: "/contact",
+    Icon: EmailIcon,
+    label: "Contact",
+  },
+];
+
 const RootLayout = ({
   children,
 }: Readonly<{
@@ -28,7 +56,7 @@ const RootLayout = ({
         <main>
           <ThemeProvider theme={theme}>
             <PageContainer>
-              <Header />
+              <Header routes={navHeaderRoutes} />
               <ContentContainer>{children}</ContentContainer>
               <Footer />
             </PageContainer>
