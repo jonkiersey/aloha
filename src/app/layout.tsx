@@ -1,12 +1,20 @@
 "use client";
 import { Box, ThemeProvider } from "@mui/material";
 import theme from "../theme";
-import { Header } from "@common";
+import { Footer, Header } from "@common";
 import styled from "styled-components";
 import { sizes } from "@constants";
 
-const PageContainer = styled(Box)({
+const ContentContainer = styled(Box)({
+  flexGrow: 1,
   marginTop: sizes.headerHeight,
+  boxSizing: "border-box",
+});
+
+const PageContainer = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+  minHeight: "100vh",
 });
 
 const RootLayout = ({
@@ -16,11 +24,14 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body style={{ margin: 0 }}>
+      <body style={{ margin: 0, height: "100vh" }}>
         <main>
           <ThemeProvider theme={theme}>
-            <Header />
-            <PageContainer>{children}</PageContainer>
+            <PageContainer>
+              <Header />
+              <ContentContainer>{children}</ContentContainer>
+              <Footer />
+            </PageContainer>
           </ThemeProvider>
         </main>
       </body>

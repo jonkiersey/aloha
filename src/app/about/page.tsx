@@ -34,7 +34,7 @@ const About = () => {
       <AboutBox>
         <ProfilePhoto alt="Photo of Jon" src={jonPhoto} />
         <Typography variant="body1">
-          Hi, I’m Jon Kiersey, a full-stack engineer with a passion for building
+          Hi, I’m Jon, a full-stack engineer with a passion for building
           efficient, type-safe, and scalable solutions using TypeScript, React,
           and Node.js. With a B.S. in Computer Science from Portland State
           University and over seven years of experience, I’ve had the
