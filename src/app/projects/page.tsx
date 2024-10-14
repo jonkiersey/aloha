@@ -24,7 +24,8 @@ const projects: ProjectCardProps[] = [
       tool split the entries automatically and created buttons for every existing sentiment so
       that for each sentiment she could either create a new idea or click an existing to
       increment its counter. This turned an hours-long task into one that could easily be done
-      in a matter of minutes.
+      in a matter of minutes, allowing the user to focus on the mental part of the task and 
+      getting to forget about the interface.
     `,
     link: "https://hr-tools.netlify.app/",
     sourceLinks: [

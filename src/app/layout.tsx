@@ -54,7 +54,7 @@ const RootLayout = ({
   return (
     <html lang="en">
       <Head>
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/icon.png" />
       </Head>
       <body style={{ margin: 0, height: "100vh" }}>
         <main>
