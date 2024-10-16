@@ -1,6 +1,7 @@
 "use client";
 import { sizes } from "@constants";
 import { Box, Link, styled, Typography } from "@mui/material";
+import ApprovalCounter from "./approval-counter";
 
 const PageContainer = styled(Box)({
   height: "100%",
@@ -47,6 +48,7 @@ const Home = () => {
             here.
           </Link>
         </CenteredTypography>
+        <ApprovalCounter />
       </ContentContainer>
     </PageContainer>
   );

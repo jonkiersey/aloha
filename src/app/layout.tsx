@@ -26,7 +26,7 @@ const PageContainer = styled(Box)({
 
 const navHeaderRoutes: HeaderProps["routes"] = [
   {
-    route: "/",
+    route: "/home",
     Icon: HomeIcon,
     label: "Home",
   },
