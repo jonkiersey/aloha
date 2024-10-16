@@ -1,6 +1,7 @@
 "use client";
 import { sizes } from "@constants";
 import { Box, Link, styled, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 
 const PageContainer = styled(Box)({
   height: "100%",
@@ -33,6 +34,10 @@ const NameTypography = styled(CenteredTypography)(({ theme }) => ({
 }));
 
 const Home = () => {
+  const [recommendations, setRecommendations] = useState();
+  useEffect(() => {
+    const response = fetch("api/recommendation");
+  });
   return (
     <PageContainer>
       <ContentContainer>
