@@ -34,15 +34,18 @@ const ContactInfo = () => {
         <LocationOnIcon />
         <Typography variant="body2">Aloha, OR</Typography>
       </ContactInfoItem>
-      <PrettyLink href="mailto:jon.kiersey@gmail.com">
+      <PrettyLink href="mailto:jon.kiersey@gmail.com" target="_blank">
         <MailOutlineIcon />
         <Typography variant="body2">jon.kiersey@gmail.com</Typography>
       </PrettyLink>
-      <PrettyLink href="https://github.com/jonkiersey">
+      <PrettyLink href="https://github.com/jonkiersey" target="_blank">
         <GitHubIcon />
         <Typography variant="body2">github.com/jonkiersey</Typography>
       </PrettyLink>
-      <PrettyLink href="https://www.linkedin.com/in/jonkiersey/">
+      <PrettyLink
+        href="https://www.linkedin.com/in/jonkiersey/"
+        target="_blank"
+      >
         <LinkedInIcon />
         <Typography variant="body2">linkedin.com/in/jonkiersey</Typography>
       </PrettyLink>
