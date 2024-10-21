@@ -9,6 +9,7 @@ import ConstructionIcon from "@mui/icons-material/Construction";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import EmailIcon from "@mui/icons-material/Email";
+import WorkIcon from "@mui/icons-material/Work";
 import Head from "next/head";
 
 const ContentContainer = styled(Box)({
@@ -33,6 +34,11 @@ const navHeaderRoutes: HeaderProps["routes"] = [
     route: "/about",
     Icon: InfoIcon,
     label: "About",
+  },
+  {
+    route: "/resume",
+    Icon: WorkIcon,
+    label: "Resume",
   },
   {
     route: "/projects",
