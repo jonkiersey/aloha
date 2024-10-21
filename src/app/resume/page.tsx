@@ -1,8 +1,12 @@
 "use client";
 import { Box, styled, Typography } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Image from "next/image";
 import {
-  ContactInfo,
+  ContactInfoItem,
   MainContent,
   SideBarInfoItem,
   Skills,
@@ -39,6 +43,12 @@ const ProfilePhoto = styled(Image)({
   borderRadius: "50%",
 });
 
+const ContactInfoContainer = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+  gap: 8,
+});
+
 const Resume = () => {
   return (
     <ResumeBox>
@@ -51,7 +61,24 @@ const Resume = () => {
         />
         <SideBarInfoBox>
           <SideBarInfoItem title="CONTACT">
-            <ContactInfo />
+            <ContactInfoContainer>
+              <ContactInfoItem Icon={LocationOnIcon} text="Aloha, OR" />
+              <ContactInfoItem
+                Icon={MailOutlineIcon}
+                text="jon.kiersey@gmail.com"
+                href="mailto:jon.kiersey@gmail.com"
+              />
+              <ContactInfoItem
+                Icon={GitHubIcon}
+                text="github.com/jonkiersey"
+                href="https://github.com/jonkiersey"
+              />
+              <ContactInfoItem
+                Icon={LinkedInIcon}
+                text="linkedin.com/in/jonkiersey"
+                href="https://www.linkedin.com/in/jonkiersey/"
+              />
+            </ContactInfoContainer>
           </SideBarInfoItem>
           <SideBarInfoItem title="EDUCATION">
             <Typography variant="body2">
@@ -81,7 +108,7 @@ const Resume = () => {
       </SideBar>
       <MainContent
         name="JON KIERSEY"
-        tagline="Full-stack champion of Typescript"
+        tagline="Full-stack champion of TypeScript"
         workExperiences={workExperiences}
       />
     </ResumeBox>
