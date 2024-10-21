@@ -18,7 +18,7 @@ const ContentContainer = styled(Box)(({ theme }) => ({
   gap: 16,
   maxWidth: 600,
   marginTop: 128,
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("sm")]: {
     marginTop: sizes.headerHeight,
   },
 }));
