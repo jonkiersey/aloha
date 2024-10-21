@@ -13,10 +13,13 @@ import {
 } from "./components";
 import workExperiences from "./work-experiences";
 
-const ResumeBox = styled(Box)({
+const ResumeBox = styled(Box)(({ theme }) => ({
   width: "100%",
   display: "flex",
-});
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+  },
+}));
 
 const SideBar = styled(Box)(({ theme }) => ({
   color: theme.palette.getContrastText(theme.palette.grey[800]),
@@ -25,6 +28,9 @@ const SideBar = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   padding: 16,
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
+  },
 }));
 
 const SideBarInfoBox = styled(Box)({
@@ -38,6 +44,7 @@ const SideBarFooter = styled(Box)({
 });
 
 const ProfilePhoto = styled(Image)({
+  alignSelf: "center",
   marginBottom: 48,
   marginTop: 48,
   borderRadius: "50%",
