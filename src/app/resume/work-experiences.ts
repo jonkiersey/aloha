@@ -16,10 +16,10 @@ const impact: WorkExperience = {
     "GraphQL",
   ],
   descriptions: [
-    "Developed full-stack features from design/requirement gathering to delivery for the movie industry including hiring tools, chat, social media features, and fully-featured, production-specific “CrewChat” with file management and distribution",
-    "Refactored email client to create type-safe correlations between email templates and dynamic template data for SendGrid",
-    "Created series of cron jobs to send notification emails to users when they became eligible for a specific email campaign",
-    "Significant modification to customer tool to work when a long-held data paradigm was changed; had to exist in parallel behind a feature flag",
+    "Developed full-stack features from design/requirement gathering to delivery for the movie industry including hiring tools, chat, social media features, and fully-featured, production-specific “CrewChat” with file management and distribution.",
+    "Refactored email client to create type-safe correlations between email templates and dynamic template data for SendGrid.",
+    "Created series of cron jobs to send notification emails to users when they became eligible for a specific email campaign.",
+    "Significant modification to customer tool to work when a long-held data paradigm was changed; had to exist in parallel behind a feature flag.",
   ],
 };
 
@@ -61,7 +61,7 @@ const nike: WorkExperience = {
     "Migrated React app from EC2 to static S3 page with Lambda backend.",
     "Optimized Retail Label generator to get Lambda execution times from 10+ seconds down under 2.",
     "Headed initiative to improve testing within team, including TDD.",
-    "Mentored junior engineers",
+    "Mentored junior engineers.",
   ],
 };
 
