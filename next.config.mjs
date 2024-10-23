@@ -4,7 +4,8 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "https://api.aloha-kiersey.com",
+        destination:
+          "https://ilv6l603a3.execute-api.us-west-2.amazonaws.com/main/:path*",
       },
     ];
   },
