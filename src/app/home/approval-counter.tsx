@@ -37,8 +37,8 @@ const ApprovalCounter = () => {
     approvals !== null && (
       <ApprovalBox>
         <Typography variant="body1">
-          <strong>{approvals}</strong> people have approved of my abilities as a
-          web developer. Click the button below to add your approval!
+          <strong>{approvals}</strong> people have endorsed my abilities as a
+          web developer. Click the button below to add your endorsement!
         </Typography>
         <Typography variant="body2">
           {multiClickText(userClickCounter) || "\u00A0"}
@@ -48,7 +48,7 @@ const ApprovalCounter = () => {
           disabled={approvalLoading}
           variant="contained"
         >
-          {approvalLoading ? <CircularProgress size={24} /> : "Approve"}
+          {approvalLoading ? <CircularProgress size={24} /> : "Endorse"}
         </ApprovalButton>
       </ApprovalBox>
     )
