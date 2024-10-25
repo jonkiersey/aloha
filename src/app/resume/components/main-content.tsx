@@ -66,6 +66,7 @@ const DescriptionListItemIcon = styled(ListItemIcon)({
 const NameTypography = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.main,
   fontWeight: "bold",
+  textAlign: "center",
 }));
 
 const WorkExperienceTypography = styled(Typography)(({ theme }) => ({
