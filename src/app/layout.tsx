@@ -11,6 +11,8 @@ import InfoIcon from "@mui/icons-material/Info";
 import EmailIcon from "@mui/icons-material/Email";
 import WorkIcon from "@mui/icons-material/Work";
 import Head from "next/head";
+import useApprovals from "./hooks/use-approvals";
+import ApprovalsContext from "./contexts/approvals-context";
 
 const ContentContainer = styled(Box)({
   flexGrow: 1,
@@ -57,6 +59,7 @@ const RootLayout = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
+  const approvals = useApprovals();
   return (
     <html lang="en">
       <Head>
@@ -65,11 +68,13 @@ const RootLayout = ({
       <body style={{ margin: 0, height: "100vh" }}>
         <main>
           <ThemeProvider theme={theme}>
-            <PageContainer>
-              <Header routes={navHeaderRoutes} />
-              <ContentContainer>{children}</ContentContainer>
-              <Footer />
-            </PageContainer>
+            <ApprovalsContext.Provider value={approvals}>
+              <PageContainer>
+                <Header routes={navHeaderRoutes} />
+                <ContentContainer>{children}</ContentContainer>
+                <Footer />
+              </PageContainer>
+            </ApprovalsContext.Provider>
           </ThemeProvider>
         </main>
       </body>

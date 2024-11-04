@@ -5,8 +5,9 @@ import {
   styled,
   Typography,
 } from "@mui/material";
-import useApprovals from "./use-approvals";
 import { multiClickText } from "./utils";
+import ApprovalsContext from "@app/contexts/approvals-context";
+import { useContext } from "react";
 
 const ApprovalButton = styled(Button)({
   height: 40,
@@ -18,7 +19,6 @@ const ApprovalButton = styled(Button)({
 const ApprovalBox = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  gap: 16,
   alignItems: "center",
   border: "1px solid",
   borderColor: theme.palette.primary.main,
@@ -32,7 +32,7 @@ const ApprovalBox = styled(Box)(({ theme }) => ({
 
 const ApprovalCounter = () => {
   const { approvalLoading, handleApproval, approvals, userClickCounter } =
-    useApprovals();
+    useContext(ApprovalsContext);
   return (
     approvals !== null && (
       <ApprovalBox>
