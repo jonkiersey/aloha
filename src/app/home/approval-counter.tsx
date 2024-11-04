@@ -19,7 +19,6 @@ const ApprovalButton = styled(Button)({
 const ApprovalBox = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  gap: 16,
   alignItems: "center",
   border: "1px solid",
   borderColor: theme.palette.primary.main,
