@@ -76,8 +76,6 @@ const Home = () => {
     },
   });
 
-  console.log("worthless change to generate a new build");
-
   useEffect(() => {
     setCanStartTyping(true);
   }, []);
