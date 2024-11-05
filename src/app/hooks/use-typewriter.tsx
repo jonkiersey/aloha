@@ -45,10 +45,15 @@ const useTypewriter = ({
   const typewritten = text.slice(0, length);
   const untyped = text.slice(length);
   const element: JSX.Element = (
-    <>
+    <span
+      style={{
+        letterSpacing: "0.01em",
+        fontKerning: "none",
+      }}
+    >
       {linkProps ? <Link {...linkProps}>{typewritten}</Link> : typewritten}
       <span style={{ color: "transparent" }}>{untyped}</span>
-    </>
+    </span>
   );
 
   return {
