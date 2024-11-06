@@ -1,5 +1,4 @@
-import { Box, Link, Typography } from "@mui/material";
-import styled from "styled-components";
+import { Box, Link, Typography, styled } from "@mui/material";
 
 const FooterContainer = styled(Box)({
   width: "100%",

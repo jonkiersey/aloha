@@ -2,7 +2,6 @@ import { Box, Card, Link, styled, Typography } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 
 const ContainerCard = styled(Card)(({ theme }) => ({
-  backgroundColor: theme.palette.grey[100],
   display: "flex",
   flexDirection: "column",
   padding: 16,

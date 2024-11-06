@@ -32,7 +32,7 @@ const CenteredTypography = styled(Typography)(({ theme }) => ({
 }));
 
 const NameTypography = styled(CenteredTypography)(({ theme }) => ({
-  color: theme.palette.primary.dark,
+  color: theme.palette.primary.main,
 }));
 
 const FadeInContainer = styled(Box)({

@@ -1,8 +1,13 @@
 "use client";
-import { Box, ThemeProvider } from "@mui/material";
+import {
+  Box,
+  ThemeProvider,
+  styled,
+  useColorScheme,
+  useMediaQuery,
+} from "@mui/material";
 import theme from "../theme";
 import { Footer, Header } from "./components";
-import styled from "styled-components";
 import { sizes } from "@constants";
 import { HeaderProps } from "./components/header";
 import ConstructionIcon from "@mui/icons-material/Construction";
@@ -13,6 +18,7 @@ import WorkIcon from "@mui/icons-material/Work";
 import Head from "next/head";
 import useApprovals from "./hooks/use-approvals";
 import ApprovalsContext from "./contexts/approvals-context";
+import { useEffect } from "react";
 
 const ContentContainer = styled(Box)({
   flexGrow: 1,
@@ -20,11 +26,12 @@ const ContentContainer = styled(Box)({
   boxSizing: "border-box",
 });
 
-const PageContainer = styled(Box)({
+const PageContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   minHeight: "100vh",
-});
+  background: theme.palette.background.default,
+}));
 
 const navHeaderRoutes: HeaderProps["routes"] = [
   {
@@ -59,6 +66,12 @@ const RootLayout = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const { mode, setMode } = useColorScheme();
+
+  useEffect(() => {
+    setMode(prefersDarkMode ? "dark" : "light");
+  }, [prefersDarkMode]);
   const approvals = useApprovals();
   return (
     <html lang="en">
@@ -67,7 +80,7 @@ const RootLayout = ({
       </Head>
       <body style={{ margin: 0, height: "100vh" }}>
         <main>
-          <ThemeProvider theme={theme}>
+          <ThemeProvider theme={theme} defaultMode={mode}>
             <ApprovalsContext.Provider value={approvals}>
               <PageContainer>
                 <Header routes={navHeaderRoutes} />
