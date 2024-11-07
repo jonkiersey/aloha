@@ -1,5 +1,4 @@
-import { Box, Link, Typography } from "@mui/material";
-import styled from "styled-components";
+import { Box, Link, Typography, styled } from "@mui/material";
 
 const FooterContainer = styled(Box)({
   width: "100%",
@@ -7,9 +6,10 @@ const FooterContainer = styled(Box)({
   justifyContent: "center",
 });
 
-const CenteredTypography = styled(Typography)({
+const CenteredTypography = styled(Typography)(({ theme }) => ({
+  color: theme.palette.secondary.main,
   textAlign: "center",
-});
+}));
 
 const Footer = () => {
   return (

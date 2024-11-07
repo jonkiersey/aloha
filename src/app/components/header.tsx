@@ -1,7 +1,11 @@
-import { Box, Button, styled } from "@mui/material";
+import { Box, Button, FormControlLabel, styled } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
 import { sizes } from "@constants";
-import { ReactNode } from "react";
+import { ReactNode, useCallback, useState } from "react";
+import { Switch } from "@mui/material";
+import { useColorScheme } from "@mui/material/styles";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import NightlightIcon from "@mui/icons-material/Nightlight";
 
 const HeaderContainer = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
@@ -10,18 +14,46 @@ const HeaderContainer = styled(Box)(({ theme }) => ({
   top: 0,
   left: 0,
   width: "100%",
-  overflowX: "auto",
   zIndex: 1000,
+  display: "flex",
 }));
 
-const HeaderContent = styled(Box)({
+const NavLinksContainer = styled(Box)({
   display: "flex",
-  minWidth: "fit-content",
-  gap: 8,
+  flexGrow: 1,
+  position: "relative",
+  overflow: "hidden",
 });
+
+const NavLinks = styled(Box)({
+  display: "flex",
+  overflowX: "auto",
+  gap: 8,
+  position: "relative",
+});
+
+const OverflowFade = styled(Box)({
+  position: "absolute",
+  top: 0,
+  bottom: 0,
+  width: 48,
+  pointerEvents: "none",
+  zIndex: 1,
+});
+
+const OverflowRightFade = styled(OverflowFade)(({ theme }) => ({
+  right: 0,
+  background: `linear-gradient(to left, ${theme.palette.primary.main}, transparent)`,
+}));
+
+const OverflowLeftFade = styled(OverflowFade)(({ theme }) => ({
+  left: 0,
+  background: `linear-gradient(to right, ${theme.palette.primary.main}, transparent)`,
+}));
 
 const NavButton = styled(Button)(({ theme }) => ({
   gap: 8,
+  flexShrink: 0,
   color: theme.palette.primary.contrastText,
   backgroundColor: "transparent",
   "&:hover": {
@@ -32,6 +64,16 @@ const SelectedNavButton = styled(NavButton)(({ theme }) => ({
   color: theme.palette.primary.light,
   backgroundColor: theme.palette.primary.dark,
 }));
+
+const StyledFormControlLabel = styled(FormControlLabel)(({ theme }) => ({
+  color: theme.palette.primary.contrastText,
+  marginLeft: "auto",
+}));
+
+const LabelIconContainer = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+});
 
 const NavLink = ({
   children,
@@ -57,20 +99,69 @@ export type HeaderProps = {
 const Header = ({ routes }: HeaderProps) => {
   const router = useRouter();
   const pathname = usePathname();
+  const { mode, setMode } = useColorScheme();
+  const [isOverflowingLeft, setIsOverflowingLeft] = useState(false);
+  const [isOverflowingRight, setIsOverflowingRight] = useState(false);
+
+  const navLinksRef = useCallback((node: HTMLDivElement) => {
+    if (node !== null) {
+      const checkOverflow = () => {
+        const { scrollLeft, scrollWidth, clientWidth } = node;
+        setIsOverflowingLeft(scrollLeft > 0);
+        setIsOverflowingRight(scrollLeft + clientWidth < scrollWidth);
+      };
+      checkOverflow(); // Check on mount
+      node.addEventListener("scroll", checkOverflow);
+      window.addEventListener("resize", checkOverflow);
+
+      return () => {
+        node.removeEventListener("scroll", checkOverflow);
+        window.removeEventListener("resize", checkOverflow);
+      };
+    }
+  }, []);
+
+  if (!mode) {
+    return null;
+  }
+
+  const isDarkMode = mode === "dark";
+  const toggleDarkMode = () => {
+    setMode(isDarkMode ? "light" : "dark");
+  };
   return (
     <HeaderContainer>
-      <HeaderContent>
-        {routes.map(({ route, Icon, label }) => (
-          <NavLink
-            isCurrentTab={pathname === route}
-            key={route}
-            onClick={() => router.push(route)}
-          >
-            <Icon />
-            {label}
-          </NavLink>
-        ))}
-      </HeaderContent>
+      <NavLinksContainer>
+        {isOverflowingLeft && <OverflowLeftFade />}
+        <NavLinks ref={navLinksRef}>
+          {routes.map(({ route, Icon, label }) => (
+            <NavLink
+              isCurrentTab={pathname === route}
+              key={route}
+              onClick={() => router.push(route)}
+            >
+              <Icon />
+              {label}
+            </NavLink>
+          ))}
+        </NavLinks>
+        {isOverflowingRight && <OverflowRightFade />}
+      </NavLinksContainer>
+      <StyledFormControlLabel
+        control={
+          <Switch
+            checked={isDarkMode}
+            onChange={toggleDarkMode}
+            color="default"
+          />
+        }
+        label={
+          <LabelIconContainer>
+            {isDarkMode ? <Brightness7Icon /> : <NightlightIcon />}
+          </LabelIconContainer>
+        }
+        aria-label="Dark Mode Switch"
+      />
     </HeaderContainer>
   );
 };

@@ -14,6 +14,7 @@ const ApprovalButton = styled(Button)({
   width: 200,
   alignSelf: "center",
   display: "inline-flex",
+  marginTop: 16,
 });
 
 const ApprovalBox = styled(Box)(({ theme }) => ({
@@ -23,6 +24,7 @@ const ApprovalBox = styled(Box)(({ theme }) => ({
   border: "1px solid",
   borderColor: theme.palette.primary.main,
   borderRadius: 8,
+  color: theme.palette.secondary.main,
   padding: 16,
   marginTop: 64,
   [theme.breakpoints.down("sm")]: {

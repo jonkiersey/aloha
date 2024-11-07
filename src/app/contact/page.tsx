@@ -1,6 +1,5 @@
 "use client";
-import { Box, Link, Typography } from "@mui/material";
-import styled from "styled-components";
+import { Box, Link, Typography, styled } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -26,14 +25,18 @@ const ContactLinkContent = styled(Box)({
   gap: 8,
 });
 
+const ColoredTypography = styled(Typography)(({ theme }) => ({
+  color: theme.palette.secondary.main,
+}));
+
 const Contact = () => {
   return (
     <PageContainer>
       <ContentContainer>
-        <Typography variant="body1">
+        <ColoredTypography variant="body1">
           The best way to reach me is by email but I should also receive a
           notification and respond if you message me on LinkedIn
-        </Typography>
+        </ColoredTypography>
         <Link href="mailto:jon.kiersey@gmail.com">
           <ContactLinkContent>
             <MailOutlineIcon />
