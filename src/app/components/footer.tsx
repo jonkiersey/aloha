@@ -6,9 +6,10 @@ const FooterContainer = styled(Box)({
   justifyContent: "center",
 });
 
-const CenteredTypography = styled(Typography)({
+const CenteredTypography = styled(Typography)(({ theme }) => ({
+  color: theme.palette.secondary.main,
   textAlign: "center",
-});
+}));
 
 const Footer = () => {
   return (
