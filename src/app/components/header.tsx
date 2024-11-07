@@ -1,9 +1,15 @@
-import { Box, Button, FormControlLabel, styled } from "@mui/material";
+import {
+  Box,
+  Button,
+  FormControlLabel,
+  styled,
+  useColorScheme,
+  Fade,
+} from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
 import { sizes } from "@constants";
 import { ReactNode, useCallback, useState } from "react";
 import { Switch } from "@mui/material";
-import { useColorScheme } from "@mui/material/styles";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import NightlightIcon from "@mui/icons-material/Nightlight";
 
@@ -132,7 +138,9 @@ const Header = ({ routes }: HeaderProps) => {
   return (
     <HeaderContainer>
       <NavLinksContainer>
-        {isOverflowingLeft && <OverflowLeftFade />}
+        <Fade in={isOverflowingLeft}>
+          <OverflowLeftFade />
+        </Fade>
         <NavLinks ref={navLinksRef}>
           {routes.map(({ route, Icon, label }) => (
             <NavLink
@@ -145,7 +153,9 @@ const Header = ({ routes }: HeaderProps) => {
             </NavLink>
           ))}
         </NavLinks>
-        {isOverflowingRight && <OverflowRightFade />}
+        <Fade in={isOverflowingRight}>
+          <OverflowRightFade />
+        </Fade>
       </NavLinksContainer>
       <StyledFormControlLabel
         control={
