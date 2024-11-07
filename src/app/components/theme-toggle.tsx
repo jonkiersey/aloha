@@ -1,9 +1,5 @@
-import { Switch, styled } from "@mui/material";
+import { Switch } from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
-
-const StyledSwitch = styled(Switch)(({ theme }) => ({
-  color: theme.palette.secondary.main,
-}));
 
 const ThemeToggle = () => {
   const { mode, setMode } = useColorScheme();

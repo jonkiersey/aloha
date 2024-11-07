@@ -25,21 +25,21 @@ const NavLinksContainer = styled(Box)({
   overflow: "hidden",
 });
 
-const NavLinks = styled(Box)(({ theme }) => ({
+const NavLinks = styled(Box)({
   display: "flex",
   overflowX: "auto",
   gap: 8,
   position: "relative",
-}));
+});
 
-const OverflowFade = styled(Box)(({ theme }) => ({
+const OverflowFade = styled(Box)({
   position: "absolute",
   top: 0,
   bottom: 0,
   width: 48,
   pointerEvents: "none",
   zIndex: 1,
-}));
+});
 
 const OverflowRightFade = styled(OverflowFade)(({ theme }) => ({
   right: 0,
@@ -117,11 +117,13 @@ const Header = ({ routes }: HeaderProps) => {
     window.addEventListener("resize", checkOverflow); // Check on resize
     navLinksRef.current?.addEventListener("scroll", checkOverflow); // Check on scroll
 
+    const navLinksRefCurrentCopy = navLinksRef.current;
+
     return () => {
       window.removeEventListener("resize", checkOverflow);
-      navLinksRef.current?.removeEventListener("scroll", checkOverflow);
+      navLinksRefCurrentCopy?.removeEventListener("scroll", checkOverflow);
     };
-  }, [navLinksRef.current]);
+  }, []);
 
   if (!mode) {
     return null;

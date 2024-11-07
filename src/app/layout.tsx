@@ -71,7 +71,7 @@ const RootLayout = ({
 
   useEffect(() => {
     setMode(prefersDarkMode ? "dark" : "light");
-  }, [prefersDarkMode]);
+  }, [prefersDarkMode, setMode]);
   const approvals = useApprovals();
   return (
     <html lang="en">
