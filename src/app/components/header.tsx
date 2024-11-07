@@ -7,15 +7,17 @@ import {
   Fade,
 } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
-import { sizes } from "@constants";
 import { ReactNode, useCallback, useState } from "react";
 import { Switch } from "@mui/material";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import NightlightIcon from "@mui/icons-material/Nightlight";
+import { sizes } from "@constants";
 
 const HeaderContainer = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
+  boxSizing: "border-box",
   height: sizes.headerHeight,
+  paddingBottom: 4,
   position: "fixed",
   top: 0,
   left: 0,
@@ -58,6 +60,7 @@ const OverflowLeftFade = styled(OverflowFade)(({ theme }) => ({
 }));
 
 const NavButton = styled(Button)(({ theme }) => ({
+  borderRadius: "0 0 4px 4px",
   gap: 8,
   flexShrink: 0,
   color: theme.palette.primary.contrastText,
