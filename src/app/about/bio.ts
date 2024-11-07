@@ -1,7 +1,11 @@
+import { differenceInYears } from "date-fns";
+
+const yearsExperience = differenceInYears(new Date(), "2017-02-01");
+
 const bio = [
   `
-    Hi, I’m Jon, a full stack web developer with over 7 years of professional engineering experience
-    since graduating with a BS in Computer Science from Portland State University. I started with
+    Hi, I’m Jon, a full stack web developer with over ${yearsExperience} years of professional engineering
+    experience since graduating with a BS in Computer Science from Portland State University. I started with
     building internal web apps to remediate data problems within global retail services on microservice
     architectures, and for the last few years I’ve been working on customer facing web apps building full
     stack features in TypeScript across React and Node.js.
