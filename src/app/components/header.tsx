@@ -1,7 +1,7 @@
 import { Box, Button, FormControlLabel, styled } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
 import { sizes } from "@constants";
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useCallback, useState } from "react";
 import { Switch } from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
@@ -100,29 +100,25 @@ const Header = ({ routes }: HeaderProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const { mode, setMode } = useColorScheme();
-  const navLinksRef = useRef<HTMLDivElement>(null);
   const [isOverflowingLeft, setIsOverflowingLeft] = useState(false);
   const [isOverflowingRight, setIsOverflowingRight] = useState(false);
 
-  useEffect(() => {
-    const checkOverflow = () => {
-      if (navLinksRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = navLinksRef.current;
+  const navLinksRef = useCallback((node: HTMLDivElement) => {
+    if (node !== null) {
+      const checkOverflow = () => {
+        const { scrollLeft, scrollWidth, clientWidth } = node;
         setIsOverflowingLeft(scrollLeft > 0);
         setIsOverflowingRight(scrollLeft + clientWidth < scrollWidth);
-      }
-    };
+      };
+      checkOverflow(); // Check on mount
+      node.addEventListener("scroll", checkOverflow);
+      window.addEventListener("resize", checkOverflow);
 
-    checkOverflow(); // Check on mount
-    window.addEventListener("resize", checkOverflow); // Check on resize
-    navLinksRef.current?.addEventListener("scroll", checkOverflow); // Check on scroll
-
-    const navLinksRefCurrentCopy = navLinksRef.current;
-
-    return () => {
-      window.removeEventListener("resize", checkOverflow);
-      navLinksRefCurrentCopy?.removeEventListener("scroll", checkOverflow);
-    };
+      return () => {
+        node.removeEventListener("scroll", checkOverflow);
+        window.removeEventListener("resize", checkOverflow);
+      };
+    }
   }, []);
 
   if (!mode) {
