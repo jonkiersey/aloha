@@ -9,11 +9,12 @@ import {
 } from "@mui/material";
 import { WorkExperience } from "../types";
 
-const MainContentContainer = styled(Box)({
+const MainContentContainer = styled(Box)(({ theme }) => ({
+  color: theme.palette.secondary.main,
   display: "flex",
   flexDirection: "column",
   padding: 16,
-});
+}));
 
 const HeaderBox = styled(Box)({
   display: "flex",
