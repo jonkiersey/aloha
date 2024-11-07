@@ -35,32 +35,20 @@ const NavLinks = styled(Box)(({ theme }) => ({
 const OverflowFade = styled(Box)(({ theme }) => ({
   position: "absolute",
   top: 0,
-  left: 0,
   bottom: 0,
-  width: 32,
-  pointerEvents: "none", // Ensure it doesn't interfere with scrolling
+  width: 48,
+  pointerEvents: "none",
+  zIndex: 1,
 }));
 
-const OverflowRightFade = styled(Box)(({ theme }) => ({
-  position: "absolute",
-  top: 0,
+const OverflowRightFade = styled(OverflowFade)(({ theme }) => ({
   right: 0,
-  bottom: 0,
-  width: 32,
-  pointerEvents: "none", // Ensure it doesn't interfere with scrolling
   background: `linear-gradient(to left, ${theme.palette.primary.main}, transparent)`,
-  zIndex: 1,
 }));
 
-const OverflowLeftFade = styled(Box)(({ theme }) => ({
-  position: "absolute",
-  top: 0,
+const OverflowLeftFade = styled(OverflowFade)(({ theme }) => ({
   left: 0,
-  bottom: 0,
-  width: 32,
-  pointerEvents: "none", // Ensure it doesn't interfere with scrolling
   background: `linear-gradient(to right, ${theme.palette.primary.main}, transparent)`,
-  zIndex: 1,
 }));
 
 const NavButton = styled(Button)(({ theme }) => ({
