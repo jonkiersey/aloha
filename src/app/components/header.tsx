@@ -103,13 +103,11 @@ const Header = ({ routes }: HeaderProps) => {
   const navLinksRef = useRef<HTMLDivElement>(null);
   const [isOverflowingLeft, setIsOverflowingLeft] = useState(false);
   const [isOverflowingRight, setIsOverflowingRight] = useState(false);
-  console.log("overflowing", { isOverflowingLeft, isOverflowingRight });
 
   useEffect(() => {
     const checkOverflow = () => {
       if (navLinksRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = navLinksRef.current;
-        console.log("navLinksRef", { scrollLeft, scrollWidth, clientWidth });
         setIsOverflowingLeft(scrollLeft > 0);
         setIsOverflowingRight(scrollLeft + clientWidth < scrollWidth);
       }
