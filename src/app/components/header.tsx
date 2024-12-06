@@ -15,7 +15,6 @@ import { sizes } from "@constants";
 
 const HeaderContainer = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
-  boxSizing: "border-box",
   height: sizes.headerHeight,
   paddingBottom: 4,
   position: "fixed",

@@ -12,7 +12,6 @@ const PageContainer = styled(Box)({
   flexDirection: "column",
   alignItems: "center",
   padding: 16,
-  boxSizing: "border-box",
 });
 
 const ContentContainer = styled(Box)(({ theme }) => ({

@@ -9,7 +9,6 @@ const PageContainer = styled(Box)({
   display: "flex",
   justifyContent: "center",
   padding: 16,
-  boxSizing: "border-box",
 });
 
 const AboutBox = styled(Paper)({

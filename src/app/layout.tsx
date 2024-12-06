@@ -1,6 +1,7 @@
 "use client";
 import {
   Box,
+  CssBaseline,
   ThemeProvider,
   styled,
   useColorScheme,
@@ -23,7 +24,6 @@ import { useEffect } from "react";
 const ContentContainer = styled(Box)({
   flexGrow: 1,
   marginTop: sizes.headerHeight,
-  boxSizing: "border-box",
 });
 
 const PageContainer = styled(Box)(({ theme }) => ({
@@ -81,6 +81,7 @@ const RootLayout = ({
       <body style={{ margin: 0, height: "100vh" }}>
         <main>
           <ThemeProvider theme={theme} defaultMode={mode}>
+            <CssBaseline />
             <ApprovalsContext.Provider value={approvals}>
               <PageContainer>
                 <Header routes={navHeaderRoutes} />

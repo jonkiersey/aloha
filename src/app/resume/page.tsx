@@ -28,7 +28,6 @@ const SideBar = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   padding: 16,
-  boxSizing: "border-box",
   [theme.breakpoints.down("sm")]: {
     width: "100%",
   },

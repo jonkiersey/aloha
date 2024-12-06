@@ -9,7 +9,6 @@ const PageContainer = styled(Box)({
   display: "flex",
   padding: 16,
   width: "100%",
-  boxSizing: "border-box",
 });
 const ContentContainer = styled(Box)({
   display: "flex",
