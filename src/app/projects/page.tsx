@@ -1,6 +1,7 @@
 "use client";
 import { Box, styled } from "@mui/material";
 import cultureParseScreenshot from "./assets/culture-parse-screenshot.jpg";
+import aoc2024Screenshot from "./assets/aoc-2024-screenshot.jpg";
 import Project, { ProjectCardProps } from "./components/project-card";
 
 const PageContainer = styled(Box)({
@@ -10,10 +11,26 @@ const PageContainer = styled(Box)({
   padding: 16,
   width: "100%",
   alignItems: "center",
-  boxSizing: "border-box",
 });
 
 const projects: ProjectCardProps[] = [
+  {
+    title: "Advent of Code - 2024",
+    image: aoc2024Screenshot,
+    description: `
+      A Next.js/React app that I created to solve the Advent of Code 2024 puzzles. There's not a
+      ton of reason to have built these functions into a web app but I've really enjoyed the
+      practice and am prouder of parts of the app structure than the actual solvers, particularly
+      the reusable Day component that renders each page.
+    `,
+    link: "https://aloha-kiersey-aoc-2024.netlify.app/day-one",
+    sourceLinks: [
+      {
+        label: "advent-of-code-2024",
+        link: "https://github.com/jonkiersey/advent-of-code-2024",
+      },
+    ],
+  },
   {
     title: "Culture Parse",
     image: cultureParseScreenshot,

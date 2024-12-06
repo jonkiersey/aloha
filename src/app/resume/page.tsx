@@ -22,9 +22,9 @@ const ResumeBox = styled(Box)(({ theme }) => ({
 }));
 
 const SideBar = styled(Box)(({ theme }) => ({
-  color: theme.palette.getContrastText(theme.palette.grey[800]),
+  color: theme.palette.getContrastText(theme.palette.secondary.dark),
   width: 250,
-  backgroundColor: theme.palette.grey[800],
+  backgroundColor: theme.palette.secondary.dark,
   display: "flex",
   flexDirection: "column",
   padding: 16,

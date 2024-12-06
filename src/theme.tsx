@@ -1,39 +1,26 @@
 import { createTheme } from "@mui/material/styles";
-import { grey, blue } from "@mui/material/colors";
 
 const theme = createTheme({
   colorSchemes: {
     light: {
       palette: {
+        mode: "light",
         primary: {
-          main: blue[500],
+          main: "#1976d2",
         },
         secondary: {
-          light: grey[400],
-          main: grey[600],
-          dark: grey[800],
-          contrastText: grey[100],
-        },
-        background: {
-          default: "#ffffff",
-          paper: "#f5f5f5",
+          main: "#757575",
         },
       },
     },
     dark: {
       palette: {
+        mode: "dark",
         primary: {
-          main: blue[200],
+          main: "#1976d2",
         },
         secondary: {
-          light: grey[200],
-          main: grey[400],
-          dark: grey[600],
-          contrastText: grey[800],
-        },
-        background: {
-          default: "#121212",
-          paper: "#1d1d1d",
+          main: "#929292",
         },
       },
     },
