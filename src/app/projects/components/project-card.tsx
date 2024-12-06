@@ -34,13 +34,7 @@ export type ProjectCardProps = {
   link?: string;
   sourceLinks?: { label: string; link: string }[];
 };
-const ProjectCard = ({
-  image,
-  title,
-  description,
-  link,
-  sourceLinks,
-}: ProjectCardProps) => {
+const ProjectCard = ({ image, title, description, link, sourceLinks }: ProjectCardProps) => {
   return (
     <ContainerCard>
       <InfoBox>
@@ -66,9 +60,7 @@ const ProjectCard = ({
           </Typography>
         )}
       </InfoBox>
-      {image !== undefined && (
-        <ProjectImage alt={`Project Image for ${title}`} src={image} />
-      )}
+      {image !== undefined && <ProjectImage alt={`Project Image for ${title}`} src={image} />}
     </ContainerCard>
   );
 };

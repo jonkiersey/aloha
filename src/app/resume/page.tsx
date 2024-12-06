@@ -5,17 +5,13 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Image from "next/image";
-import {
-  ContactInfoItem,
-  MainContent,
-  SideBarInfoItem,
-  Skills,
-} from "./components";
+import { ContactInfoItem, MainContent, SideBarInfoItem, Skills } from "./components";
 import workExperiences from "./work-experiences";
 
 const ResumeBox = styled(Box)(({ theme }) => ({
   width: "100%",
   display: "flex",
+  backgroundColor: theme.palette.background.default,
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
   },
@@ -60,12 +56,7 @@ const Resume = () => {
   return (
     <ResumeBox>
       <SideBar>
-        <ProfilePhoto
-          alt="Photo of Jon"
-          src={"/jon-photo.jpg"}
-          width="200"
-          height="200"
-        />
+        <ProfilePhoto alt="Photo of Jon" src={"/jon-photo.jpg"} width="200" height="200" />
         <SideBarInfoBox>
           <SideBarInfoItem title="CONTACT">
             <ContactInfoContainer>
@@ -75,11 +66,7 @@ const Resume = () => {
                 text="jon.kiersey@gmail.com"
                 href="mailto:jon.kiersey@gmail.com"
               />
-              <ContactInfoItem
-                Icon={GitHubIcon}
-                text="github.com/jonkiersey"
-                href="https://github.com/jonkiersey"
-              />
+              <ContactInfoItem Icon={GitHubIcon} text="github.com/jonkiersey" href="https://github.com/jonkiersey" />
               <ContactInfoItem
                 Icon={LinkedInIcon}
                 text="linkedin.com/in/jonkiersey"
@@ -88,36 +75,20 @@ const Resume = () => {
             </ContactInfoContainer>
           </SideBarInfoItem>
           <SideBarInfoItem title="EDUCATION">
-            <Typography variant="body2">
-              B.S. in Computer Science - Portland State University, 2016
-            </Typography>
+            <Typography variant="body2">B.S. in Computer Science - Portland State University, 2016</Typography>
           </SideBarInfoItem>
           <SideBarInfoItem title="SKILLS">
-            <Skills
-              skills={[
-                "TypeScript",
-                "REST API Design",
-                "Node.js",
-                "React.js",
-                "PostgreSQL",
-                "GraphQL",
-              ]}
-            />
+            <Skills skills={["TypeScript", "REST API Design", "Node.js", "React.js", "PostgreSQL", "GraphQL"]} />
           </SideBarInfoItem>
         </SideBarInfoBox>
         <SideBarFooter>
           <Typography variant="caption">
-            Developer joy is directly proportional to product quality. Shipping
-            stable, self-healing, delightful customer experiences is what makes
-            me happy.
+            Developer joy is directly proportional to product quality. Shipping stable, self-healing, delightful
+            customer experiences is what makes me happy.
           </Typography>
         </SideBarFooter>
       </SideBar>
-      <MainContent
-        name="JON KIERSEY"
-        tagline="Full-stack champion of TypeScript"
-        workExperiences={workExperiences}
-      />
+      <MainContent name="JON KIERSEY" tagline="Full-stack champion of TypeScript" workExperiences={workExperiences} />
     </ResumeBox>
   );
 };

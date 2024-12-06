@@ -1,12 +1,5 @@
 "use client";
-import {
-  Box,
-  CssBaseline,
-  ThemeProvider,
-  styled,
-  useColorScheme,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, CssBaseline, ThemeProvider, styled, useColorScheme, useMediaQuery } from "@mui/material";
 import theme from "../theme";
 import { Footer, Header } from "./components";
 import { sizes } from "@constants";
@@ -20,6 +13,7 @@ import Head from "next/head";
 import useApprovals from "./hooks/use-approvals";
 import ApprovalsContext from "./contexts/approvals-context";
 import { useEffect } from "react";
+import transparent from "@utils/transparent";
 
 const ContentContainer = styled(Box)({
   flexGrow: 1,
@@ -30,7 +24,10 @@ const PageContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   minHeight: "100vh",
-  background: theme.palette.background.default,
+  backgroundImage: `radial-gradient(at 0% 0%, ${theme.palette.background.default} 50%, ${transparent(
+    theme.palette.primary.main,
+    0.2
+  )})`,
 }));
 
 const navHeaderRoutes: HeaderProps["routes"] = [
