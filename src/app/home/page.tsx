@@ -25,10 +25,9 @@ const ContentContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-const CenteredTypography = styled(Typography)(({ theme }) => ({
-  color: theme.palette.secondary.main,
+const CenteredTypography = styled(Typography)({
   textAlign: "center",
-}));
+});
 
 const NameTypography = styled(CenteredTypography)(({ theme }) => ({
   color: theme.palette.primary.main,

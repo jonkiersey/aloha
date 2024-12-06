@@ -24,18 +24,14 @@ const ContactLinkContent = styled(Box)({
   gap: 8,
 });
 
-const ColoredTypography = styled(Typography)(({ theme }) => ({
-  color: theme.palette.secondary.main,
-}));
-
 const Contact = () => {
   return (
     <PageContainer>
       <ContentContainer>
-        <ColoredTypography variant="body1">
+        <Typography variant="body1">
           The best way to reach me is by email but I should also receive a
           notification and respond if you message me on LinkedIn
-        </ColoredTypography>
+        </Typography>
         <Link href="mailto:jon.kiersey@gmail.com">
           <ContactLinkContent>
             <MailOutlineIcon />
