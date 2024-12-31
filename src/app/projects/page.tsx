@@ -2,6 +2,7 @@
 import { Box, styled } from "@mui/material";
 import cultureParseScreenshot from "./assets/culture-parse-screenshot.jpg";
 import aoc2024Screenshot from "./assets/aoc-2024-screenshot.jpg";
+import lockPuzzleScreenshot from "./assets/lock-puzzle-screenshot.jpg";
 import Project, { ProjectCardProps } from "./components/project-card";
 
 const PageContainer = styled(Box)({
@@ -14,6 +15,18 @@ const PageContainer = styled(Box)({
 });
 
 const projects: ProjectCardProps[] = [
+  {
+    title: "Lock Puzzle Solver",
+    image: lockPuzzleScreenshot,
+    description: "A React app that solves a specific type of combination lock puzzle.",
+    link: "https://aloha-lock-puzzle.netlify.app/",
+    sourceLinks: [
+      {
+        label: "lock-puzzle",
+        link: "https://github.com/jonkiersey/lock-puzzle",
+      },
+    ],
+  },
   {
     title: "Advent of Code - 2024",
     image: aoc2024Screenshot,
@@ -45,9 +58,7 @@ const projects: ProjectCardProps[] = [
       getting to forget about the interface.
     `,
     link: "https://hr-tools.netlify.app/",
-    sourceLinks: [
-      { label: "hr-tools", link: "https://github.com/jonkiersey/hr-tools" },
-    ],
+    sourceLinks: [{ label: "hr-tools", link: "https://github.com/jonkiersey/hr-tools" }],
   },
   {
     title: "Lifepoints",
